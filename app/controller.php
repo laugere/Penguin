@@ -39,10 +39,29 @@ class Controller
         return $this->authorController->getAuthor($id);
     }
 
+    #region NAVIGATION
     public function home()
     {
-        echo $this->twig->render('home.html.twig', [
+        echo $this->twig->render('index.html.twig', [
+            'index' => 0,
             'books' => $this->getBooks()
         ]);
     }
+
+    public function my()
+    {
+        echo $this->twig->render('index.html.twig', [
+            'index' => 1,
+            'books' => $this->getBooks()
+        ]);
+    }
+
+    public function penguin()
+    {
+        echo $this->twig->render('index.html.twig', [
+            'index' => 2,
+            'books' => $this->getBooks()
+        ]);
+    }
+    #endregion
 }

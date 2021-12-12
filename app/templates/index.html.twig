@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {% block head %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="../assets/img/icon.png" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- FontAwesome CSS -->
+    <link href="../assets/fontawesome/css/all.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../assets/css/styles.css" rel="stylesheet">
+
+    <title>Penguin</title>
+    {% endblock %}
+</head>
+
+<body>
+    {% block navbar %}
+    <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand ps-2">
+            <i class="fas fa-book-open fa-fw"></i>
+            Penguin
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link {{ index == 0 ? 'active' : '' }}" href="/">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ index == 1 ? 'active' : '' }}" href="/my">Chez moi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ index == 2 ? 'active' : '' }}" href="/penguin">Penguin</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    {% endblock %}
+
+    {% if index == 0 %}
+    {% include 'home.html.twig' %}
+    {% elseif index == 1 %}
+    {% include 'my.html.twig' %}
+    {% elseif index == 2 %}
+    {% include 'penguin.html.twig' %}
+    {% endif %}
+
+    {% block footer %}
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="../assets/js/scripts.js"></script>
+    {% endblock %}
+</body>
+
+</html>

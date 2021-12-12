@@ -11,6 +11,12 @@ switch ($request) {
     case '/':
         $controller->home();
         break;
+    case '/my':
+        $controller->my();
+        break;
+    case '/penguin':
+        $controller->penguin();
+        break;
     case substr($request, 0, strlen('/book/')) == '/book/':
         $bookId = substr($request, strlen('/book/'));
         if (strlen($bookId) == 36) {
