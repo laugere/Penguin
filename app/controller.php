@@ -41,6 +41,8 @@ class Controller
 
     public function home()
     {
-        echo $this->twig->render('home.html.twig');
+        echo $this->twig->render('home.html.twig', [
+            'books' => $this->getBooks()
+        ]);
     }
 }

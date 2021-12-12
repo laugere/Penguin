@@ -7,27 +7,52 @@ class Book
     // Properties
     private $id;
     private $title;
-    private $authorId;
+    private $author;
+    private $cover;
+    private $synopsis;
 
-    function __construct($id, $title, $authorId)
+    function __construct($id, $title, $author, $cover, $synopsis)
     {
         $this->id = $id;
         $this->title = $title;
-        $this->authorId = $authorId;
+        $this->author = $author;
+        $this->cover = $cover;
+        $this->synopsis = $synopsis;
     }
 
-    function getId(): string
+    function toArray()
+    {
+        return array(
+            'id' => $this->id,
+            'title' => $this->title,
+            'author' => $this->author->toArray(),
+            'cover' => $this->cover,
+            'synopsis' => $this->synopsis
+        );
+    }
+
+    function getId()
     {
         return $this->id;
     }
 
-    function getTitle(): string
+    function getTitle()
     {
         return $this->title;
     }
 
-    function getAuthorId(): string
+    function getAuthor()
     {
-        return $this->authorId;
+        return $this->author;
+    }
+
+    function getCover()
+    {
+        return $this->cover;
+    }
+
+    function getSynopsis()
+    {
+        return $this->synopsis;
     }
 }

@@ -26,6 +26,8 @@ class Connector
         if ($this->conection->connect_error) {
             die("Connection failed: " . $this->conection->connect_error);
         }
+
+        $this->conection->set_charset('utf8mb4');
     }
 
     public function getData($query): array

@@ -4,15 +4,18 @@ namespace App\ClassController;
 
 use App\Object\Book;
 use App\Connector;
+use App\ClassController\AuthorController;
 
 class BookController
 {
     // Properties
     private $connector;
+    private $authorController;
 
     function __construct()
     {
         $this->connector = new Connector();
+        $this->authorController = new AuthorController();
     }
 
     function getBooks(): array
@@ -24,7 +27,9 @@ class BookController
             $book = new Book(
                 $row['id'],
                 $row['title'],
-                $row['authorId']
+                $this->authorController->getAuthor($row['authorId']),
+                $row['cover'],
+                $row['synopsis']
             );
             array_push($books, $book);
         }
@@ -42,7 +47,9 @@ class BookController
             $book = new Book(
                 $row['id'],
                 $row['title'],
-                $row['authorId']
+                $this->authorController->getAuthor($row['authorId']),
+                $row['cover'],
+                $row['synopsis']
             );
         }
 

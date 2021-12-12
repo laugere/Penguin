@@ -16,6 +16,15 @@ class Author
         $this->surname = $surname;
     }
 
+    function toArray()
+    {
+        return array(
+            'id' => $this->id,
+            'name' => $this->name,
+            'surname' => $this->surname
+        );
+    }
+
     function getId(): string
     {
         return $this->id;
