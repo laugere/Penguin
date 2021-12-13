@@ -1,5 +1,6 @@
-function openModal(bookId) {
+function openModal(card, bookId) {
     $("#modal-book-viewer").modal('toggle');
+    card.addClass("card-loading");
     getBookInfos(bookId);
 }
 

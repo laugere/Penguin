@@ -17,8 +17,6 @@ body {
 
     background-color: var(--bg-color);
     color: var(--font-color);
-
-    transition: all 0.5s;
 }
 
 .card-img-top {
@@ -64,4 +62,8 @@ div #modal-book-content-cover {
 body:not(.focus-visible) :focus:not(.focus-visible) {
     outline: 0 !important;
     box-shadow: none !important;
+}
+
+.card-loading {
+    opacity: 0.5;
 }

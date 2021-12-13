@@ -3,7 +3,7 @@
         <h1>Nouveautés</h1>
         <div class="row">
             {% for book in books|slice(0, 3) %}
-            <div class="col-md p-2" onclick="openModal('{{ book.id }}')">
+            <div class="col-md p-2" onclick="openModal(this, '{{ book.id }}')">
                 <div class="card bg-dark">
                     <img class="card-img-top" src="ftp/cover/{{ book.cover }}">
                     <div class="card-body">
