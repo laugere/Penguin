@@ -16,7 +16,7 @@ class Connector
     {
         $this->serverName = "localhost";
         $this->userName = "root";
-        $this->password = "root";
+        $this->password = "";
         $this->database = "penguin";
 
         // Create connection

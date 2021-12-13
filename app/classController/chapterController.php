@@ -18,13 +18,13 @@ class ChapterController
     function getChapterForBook($bookId)
     {
         $chapters = array();
-        $rows = $this->connector->getData('SELECT * FROM chapter WHERE bookId = \'' . $bookId . '\'');
+        $rows = $this->connector->getData('SELECT * FROM chapter WHERE bookId = \'' . $bookId . '\' ORDER BY chapter.order');
 
-        foreach ($rows as $row)
-        {
+        foreach ($rows as $row) {
             $chapter = new Chapter(
                 $row['id'],
                 $row['bookId'],
+                $row['order'],
                 $row['title'],
                 $row['content']
             );
