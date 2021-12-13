@@ -11,11 +11,13 @@ class BookController
     // Properties
     private $connector;
     private $authorController;
+    private $chapterController;
 
     function __construct()
     {
         $this->connector = new Connector();
         $this->authorController = new AuthorController();
+        $this->chapterController = new ChapterController();
     }
 
     function getBooks(): array
@@ -23,13 +25,15 @@ class BookController
         $books = array();
         $rows = $this->connector->getData('SELECT * FROM book');
 
-        foreach ($rows as $row) {
+        foreach ($rows as $row)
+        {
             $book = new Book(
                 $row['id'],
                 $row['title'],
                 $this->authorController->getAuthor($row['authorId']),
                 $row['cover'],
-                $row['synopsis']
+                $row['synopsis'],
+                $this->chapterController->getChapterForBook($row['id'])
             );
             array_push($books, $book);
         }
@@ -42,14 +46,16 @@ class BookController
         $book = null;
         $rows = $this->connector->getData('SELECT * FROM book WHERE id = \'' . $id . '\'');
 
-        if (count($rows) == 1) {
+        if (count($rows) == 1)
+        {
             $row = array_shift($rows);
             $book = new Book(
                 $row['id'],
                 $row['title'],
                 $this->authorController->getAuthor($row['authorId']),
                 $row['cover'],
-                $row['synopsis']
+                $row['synopsis'],
+                $this->chapterController->getChapterForBook($row['id'])
             );
         }
 

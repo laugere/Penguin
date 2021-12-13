@@ -1,12 +1,16 @@
-function openModal(card, bookId) {
+function openViewModal(card, bookId) {
     $(card).find('.card-body').addClass("card-loading");
     $(card).find('.card-img-top').addClass("card-loading");
     $(card).find('.loading').addClass("active");
     getBookInfos(card, bookId);
 }
 
-function closeModal() {
-    $("#modal-book-viewer").modal('toggle');
+function openReadModal() {
+    $("#modal-book-reader").modal('toggle');
+}
+
+function closeModal(id) {
+    $("#" + id).modal('toggle');
 }
 
 function getBookInfos(card, bookId) {
@@ -20,6 +24,10 @@ function getBookInfos(card, bookId) {
             $("#modal-book-content-synopsis").html(result.synopsis);
             $("#modal-book-content-cover").css("background-image", "url('ftp/cover/" + result.cover + "')");
             $("#modal-book-viewer").modal('toggle');
+            console.log(result);
+            //chapters = new Map Object.entries(result.chapter)
+            //$("#modal-book-reader").find('.modal-body')
+
             $(card).find('.card-body').removeClass("card-loading");
             $(card).find('.card-img-top').removeClass("card-loading");
             $(card).find('.loading').removeClass("active");
