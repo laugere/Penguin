@@ -32,6 +32,16 @@ body {
     cursor: pointer;
 }
 
+.loading {
+    display: none;
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(-1rem);
+}
+
 .modal-content {
     background-color: var(--bg-color-1) !important;
 }
@@ -65,5 +75,10 @@ body:not(.focus-visible) :focus:not(.focus-visible) {
 }
 
 .card-loading {
-    opacity: 0.5;
+    opacity: 0.1;
+    transition: all 0.1s;
+}
+
+.active {
+    display: block;
 }
