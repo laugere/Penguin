@@ -22,27 +22,23 @@
 
 <body>
     {% block navbar %}
-    <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark">
-        <a class="navbar-brand ps-2">
-            <i class="fas fa-book-open fa-fw"></i>
-            Penguin
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand">
+                <i class="fas fa-book-open fa-fw"></i>
+                Penguin
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars fa-lg"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar-menu">
+                <div class="navbar-nav">
                     <a class="nav-link {{ index == 0 ? 'active' : '' }}" href="/">Accueil</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link {{ index == 1 ? 'active' : '' }}" href="/my">Chez moi</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link {{ index == 2 ? 'active' : '' }}" href="/penguin">Penguin</a>
-                </li>
-            </ul>
+                </div>
+            </div>
         </div>
     </nav>
     {% endblock %}

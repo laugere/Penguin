@@ -17,6 +17,8 @@ body {
 
     background-color: var(--bg-color);
     color: var(--font-color);
+
+    transition: all 0.5s;
 }
 
 .card-img-top {
@@ -53,4 +55,13 @@ div #modal-book-content-cover {
     background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.navbar-toggler {
+    border: none !important;
+}
+
+body:not(.focus-visible) :focus:not(.focus-visible) {
+    outline: 0 !important;
+    box-shadow: none !important;
 }

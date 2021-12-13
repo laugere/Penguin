@@ -20,7 +20,7 @@ class Controller
         $this->bookController = new BookController();
         $this->authorController = new AuthorController();
 
-        $loader = new FilesystemLoader(__DIR__ . '\templates');
+        $loader = new FilesystemLoader(__DIR__ . '/templates');
         $this->twig = new Environment($loader);
     }
 
