@@ -63,6 +63,7 @@ div #modal-book-content-cover {
     background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
+    min-height: 20rem;
 }
 
 .navbar-toggler {
