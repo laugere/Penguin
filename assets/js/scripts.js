@@ -25,11 +25,15 @@ function getBookInfos(card, bookId) {
             $("#modal-book-content-cover").css("background-image", "url('ftp/cover/" + result.cover + "')");
             $("#modal-book-viewer").modal('toggle');
 
-            $("#modal-book-reader").find('.modal-body').html('');
+            $("#modal-book-reader").find('.modal-book-reader-content').html('');
+            $('#nav-read-scroll').html('');
             chapters = new Map(Object.entries(result.chapters));
             chapters.forEach(function (chapter) {
-                $("#modal-book-reader").find('.modal-body').append(
-                    "<h1>Chapitre " + chapter.order + " - " + chapter.title + "</h1>" +
+                $('#nav-read-scroll').append(
+                    "<a class=\"list-group-item list-group-item-action\" href=\"#" + chapter.id + "\">Chapitre " + chapter.order + " - " + chapter.title + "</a>"
+                );
+                $("#modal-book-reader").find('.modal-book-reader-content').append(
+                    "<h1 id=\"" + chapter.id + "\">Chapitre " + chapter.order + " - " + chapter.title + "</h1>" +
                     "<p>" + chapter.content + "</p>"
                 )
             });
