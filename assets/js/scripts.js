@@ -5,6 +5,10 @@ function openViewModal(card, bookId) {
     getBookInfos(card, bookId);
 }
 
+$('#modal-book-reader').on('shown.bs.modal', function (e) {
+    $('.modal-body').scrollspy('refresh');
+});
+
 function openReadModal() {
     $("#modal-book-reader").modal('toggle');
 }
@@ -29,8 +33,8 @@ function getBookInfos(card, bookId) {
             $('#nav-read-scroll').html('');
             chapters = new Map(Object.entries(result.chapters));
             chapters.forEach(function (chapter) {
-                $('#nav-read-scroll').append(
-                    "<a class=\"list-group-item list-group-item-action\" href=\"#" + chapter.id + "\">Chapitre " + chapter.order + " - " + chapter.title + "</a>"
+                $('#chapter-nav').append(
+                    "<a class=\"list-group-item list-group-item-action list-group-item-dark\" href=\"#" + chapter.id + "\">Chapitre " + chapter.order + " - " + chapter.title + "</a>"
                 );
                 $("#modal-book-reader").find('.modal-book-reader-content').append(
                     "<h1 id=\"" + chapter.id + "\">Chapitre " + chapter.order + " - " + chapter.title + "</h1>" +

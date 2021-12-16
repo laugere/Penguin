@@ -10,6 +10,7 @@
 
 .bg-dark {
     background-color: var(--bg-color-1) !important;
+    color: white;
 }
 
 body {
@@ -82,4 +83,8 @@ body:not(.focus-visible) :focus:not(.focus-visible) {
 
 .active {
     display: block;
+}
+
+#chapter-nav {
+    position: fixed;
 }
